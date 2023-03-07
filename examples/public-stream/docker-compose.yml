@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  srs:
+    image: ossrs/srs:4
+    container_name: srs
+    ports:
+      - 1935:1935
+      - 1985:1985
+      - 8080:8080
+  spotifyd-rtmp:
+    image: spotifyd-rtmp
+    container_name: spotifyd-rtmp
+    env_file: .env
