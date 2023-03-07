@@ -13,9 +13,9 @@ get_required_env() {
 
 # Start spotifyd
 /app/spotifyd --no-daemon \
-  --backend "$(get_env BACKEND 'pulseaudio')" \
-  --device-name "$(get_env DEVICE_NAME 'Faux')" \
-  --device-type "$(get_env DEVICE_TYPE 'avr')" \
-  --bitrate "$(get_env BITRATE '320')" \
-  --username "$(get_required_env USERNAME)" \
-  --password "$(get_required_env PASSWORD)"
+  --backend pulseaudio \
+  --device-name "$(get_env SPOTIFYD_DEVICE_NAME 'Faux')" \
+  --device-type "$(get_env SPOTIFYD_DEVICE_TYPE 'avr')" \
+  --bitrate "$(get_env SPOTIFYD_BITRATE '320')" \
+  --username "$(get_required_env SPOTIFY_USERNAME)" \
+  --password "$(get_required_env SPOTIFY_PASSWORD)"
