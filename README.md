@@ -1,11 +1,22 @@
-### Stream spotify to rtmp server
-This is achieved by runngin spotifyd inside the container which is then streamed using pulseaudio sink and ffmpeg which send the pulseaudio sink output to rtmp server.
+# Streaming Spotify to an RTMP Server
 
-#### Example using docker compose
-Example is included in `examples/public-stream` which `docker compose`. Two services are run one of which is __ossrs/srs__ docker image which acts as an rtmp server and other is __spotifyd-rtmp__ which sends currently spotifyd pulseaudio sink output to rtmp server.
+This repository allows you to stream Spotify music to an RTMP server, enabling public access to your favorite tunes. We'll explore how to set up a Docker container to run `spotifyd` and stream the audio using `pulseaudio` and `ffmpeg` to send the output to an RTMP server.
 
-#### What even do this?
-This can be helpful in creating public stream which can be played by anyone and in my case by a discord music bot.
+### Example using Docker Compose
 
-#### What improvements can be made?
-Alot of improvements like making this more stable, smaller docker image size and lowering the latency of the final stream.
+In the `examples/public-stream` directory, you'll find an example `docker-compose.yml` file that demonstrates how to run two services:
+
+1. `ossrs/srs`: An RTMP server Docker image that accepts incoming streams.
+2. `spotifyd-rtmp`: A custom image that runs `spotifyd` and streams the pulseaudio sink output to the RTMP server.
+
+### What is this for?
+
+By creating a public stream, you can share your Spotify music with others. In my case, I use this to create a public stream for a Discord music bot.
+
+### Room for Improvement
+
+There are many ways to enhance this project:
+
+1. **Stability**: Improve the stability of the streaming process.
+2. **Docker Image Size**: Optimize the Docker image size to reduce storage requirements.
+3. **Latency**: Reduce the latency of the final stream for a more seamless listening experience.
